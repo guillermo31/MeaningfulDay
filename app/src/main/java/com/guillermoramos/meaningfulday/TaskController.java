@@ -10,10 +10,7 @@ public class TaskController
     {
 
     }
-    public TaskController(ArrayList<MeaningfulTask> tasks)
-    {
-        tasks = new ArrayList<MeaningfulTask>(this.taskArray);
-    }
+
 
 
 }
