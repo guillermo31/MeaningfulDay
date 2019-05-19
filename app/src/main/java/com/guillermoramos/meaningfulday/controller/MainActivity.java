@@ -1,7 +1,9 @@
-package com.guillermoramos.meaningfulday;
+package com.guillermoramos.meaningfulday.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.guillermoramos.meaningfulday.R;
 
 public class MainActivity extends AppCompatActivity
 {

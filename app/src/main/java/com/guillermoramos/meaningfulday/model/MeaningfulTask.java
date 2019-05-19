@@ -1,4 +1,4 @@
-package com.guillermoramos.meaningfulday;
+package com.guillermoramos.meaningfulday.model;
 
 public class MeaningfulTask
 {
