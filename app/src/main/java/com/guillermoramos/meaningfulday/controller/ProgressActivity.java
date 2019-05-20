@@ -18,6 +18,9 @@ public class ProgressActivity extends AppCompatActivity
     private float dailyGoal = (float) MainActivity.dailyGoal;
     private float tasksDone = (float) MainActivity.taskList.size();
 
+    /**
+     * Method required by Android that makes initial setup work
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -27,6 +30,9 @@ public class ProgressActivity extends AppCompatActivity
         setupPieChart();
     }
 
+    /**
+     * It sets up the necessary data to create a pie chart
+     */
     private void setupPieChart()
     {
         List<PieEntry> pieEntries = new ArrayList<>();

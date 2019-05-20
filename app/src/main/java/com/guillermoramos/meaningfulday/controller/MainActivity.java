@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<MeaningfulTask> taskList;
     static int dailyGoal;
 
+    /**
+     * Method required by Android that makes initial setup work
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,16 +72,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method that creates the intent of opening the AddActivity
+     */
     public void openAddScreen() {
         Intent intent = new Intent(this, AddActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Method that creates the intent of opening the ProgressActivity
+     */
     public void openProgressScreen() {
         Intent intent = new Intent(this, ProgressActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Loads the serialized taskList ArrayList from the device's storage onto the running program
+     */
     public void loadTaskList()
     {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -93,12 +105,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Loads the serialized dailyGoal integer variable from the device's storage
+     */
     public void loadDailyGoal()
     {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", 0);
         dailyGoal = sharedPreferences.getInt("daily goal", 0);
     }
 
+    /**
+     * Saves the dailyGoal integer variable into the device's storage
+     */
     public void saveDailyGoal()
     {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", 0);

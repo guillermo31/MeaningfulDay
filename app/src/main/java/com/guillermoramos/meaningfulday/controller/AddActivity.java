@@ -26,7 +26,9 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
     private MeaningfulTask newMeaningfulTask;
 
 //    private ArrayList<MeaningfulTask> taskArrayList = new ArrayList<MeaningfulTask>();
-
+    /**
+     * Method required by Android that makes initial setup work
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -63,20 +65,26 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
     }
 
 
-
+    /**
+     * Required implemented method from the AdapterView interface
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
     {
         String category = parent.getItemAtPosition(position).toString();
     }
-
+    /**
+     * Required implemented method from the AdapterView interface
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent)
     {
 
     }
 
-
+    /**
+     * Saves the taskList ArrayList into the device's storage.
+     */
     public void saveTaskList()
     {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
