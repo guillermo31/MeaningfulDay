@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.guillermoramos.meaningfulday.R;
 import com.guillermoramos.meaningfulday.model.MeaningfulTask;
@@ -50,6 +51,8 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
                 newMeaningfulTask = new MeaningfulTask(task, category);
 
                 taskArrayList.add(newMeaningfulTask);
+
+                Toast.makeText(getApplicationContext(), "Task Submitted", Toast.LENGTH_SHORT).show();
 
             }
         });
