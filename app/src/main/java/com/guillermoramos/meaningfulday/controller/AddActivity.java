@@ -17,12 +17,13 @@ import com.guillermoramos.meaningfulday.model.MeaningfulTask;
 import java.util.ArrayList;
 
 
+
 public class AddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
     private Button submitButton;
     private MeaningfulTask newMeaningfulTask;
 
-    private ArrayList<MeaningfulTask> taskArrayList = new ArrayList<MeaningfulTask>();
+//    private ArrayList<MeaningfulTask> taskArrayList = new ArrayList<MeaningfulTask>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,17 +50,12 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
                 String category = categorySpinner.getSelectedItem().toString();
 
                 newMeaningfulTask = new MeaningfulTask(task, category);
-                taskArrayList.add(newMeaningfulTask);
+                MainActivity.taskList.add(newMeaningfulTask);
 
                 Toast.makeText(getApplicationContext(), "Task Submitted", Toast.LENGTH_SHORT).show();
 
             }
         });
-    }
-
-    public int getListSize()
-    {
-        return taskArrayList.size();
     }
 
 

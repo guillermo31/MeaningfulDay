@@ -14,8 +14,8 @@ import java.util.List;
 
 public class ProgressActivity extends AppCompatActivity
 {
-    private AddActivity addActivity = new AddActivity();
     private float dailyGoal = 20;
+    private float tasksDone = (float) MainActivity.taskList.size();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,7 +30,7 @@ public class ProgressActivity extends AppCompatActivity
     {
         String parameter = "Current Progress";
         List<PieEntry> pieEntries = new ArrayList<>();
-        pieEntries.add(new PieEntry((float) addActivity.getListSize(), "Current Progress"));
+        pieEntries.add(new PieEntry(tasksDone, "Current Progress"));
         pieEntries.add(new PieEntry(dailyGoal, "Daily Goal"));
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "Daily Goal Progress");

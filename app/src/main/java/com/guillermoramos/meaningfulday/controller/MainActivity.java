@@ -7,18 +7,24 @@ import android.view.View;
 import android.widget.Button;
 
 import com.guillermoramos.meaningfulday.R;
+import com.guillermoramos.meaningfulday.model.MeaningfulTask;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
 
     private Button addButton;
     private Button progressButton;
+    static ArrayList<MeaningfulTask> taskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        taskList = new ArrayList<>();
 
         addButton = (Button) findViewById(R.id.add_button);
         progressButton = (Button) findViewById(R.id.progressPage);
