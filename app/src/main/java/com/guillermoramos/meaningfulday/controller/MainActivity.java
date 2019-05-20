@@ -26,9 +26,7 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<MeaningfulTask> taskList;
     static int dailyGoal;
 
-    /**
-     * Method required by Android that makes initial setup work
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
