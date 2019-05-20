@@ -15,4 +15,9 @@ public class MeaningfulTask
         this.task = task;
         this.category = category;
     }
+
+    public String getTask()
+    {
+        return task;
+    }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ProgressActivity extends AppCompatActivity
 {
-    private AddActivity addActivity;
+    private AddActivity addActivity = new AddActivity();
     private float dailyGoal = 20;
 
     @Override

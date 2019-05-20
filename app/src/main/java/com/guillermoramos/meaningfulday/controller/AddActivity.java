@@ -49,7 +49,6 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
                 String category = categorySpinner.getSelectedItem().toString();
 
                 newMeaningfulTask = new MeaningfulTask(task, category);
-
                 taskArrayList.add(newMeaningfulTask);
 
                 Toast.makeText(getApplicationContext(), "Task Submitted", Toast.LENGTH_SHORT).show();
