@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button addButton;
     private Button progressButton;
     private Button updateButton;
+    private Button viewButton;
     static ArrayList<MeaningfulTask> taskList;
     static int dailyGoal;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         addButton = (Button) findViewById(R.id.add_button);
         progressButton = (Button) findViewById(R.id.progressPage);
         updateButton = (Button) findViewById(R.id.udpateButton);
+        viewButton = (Button) findViewById(R.id.viewButton);
 
         addButton.setOnClickListener(new View.OnClickListener()
         {
@@ -67,7 +69,21 @@ public class MainActivity extends AppCompatActivity {
                 saveDailyGoal();
             }
         });
+        viewButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                openViewScreen();
+            }
+        });
 
+    }
+
+    private void openViewScreen()
+    {
+        Intent intent = new Intent(this, ViewHistoryActivity.class);
+        startActivity(intent);
     }
 
     /**
