@@ -35,6 +35,10 @@ public class ProgressActivity extends AppCompatActivity
      */
     private void setupPieChart()
     {
+        if(tasksDone >= dailyGoal)
+        {
+            dailyGoal = 0;
+        }
         List<PieEntry> pieEntries = new ArrayList<>();
         pieEntries.add(new PieEntry(tasksDone, "Current Progress"));
         pieEntries.add(new PieEntry(dailyGoal, "Daily Goal"));
