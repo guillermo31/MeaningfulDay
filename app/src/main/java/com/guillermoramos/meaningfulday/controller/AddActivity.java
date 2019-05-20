@@ -1,5 +1,6 @@
 package com.guillermoramos.meaningfulday.controller;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.guillermoramos.meaningfulday.R;
 import com.guillermoramos.meaningfulday.model.MeaningfulTask;
 
@@ -62,11 +64,14 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
                     MainActivity.dailyGoal = goal;
                 }
 
+                saveTaskList();
+
                 Toast.makeText(getApplicationContext(), "Task Submitted", Toast.LENGTH_SHORT).show();
 
             }
         });
     }
+
 
 
     @Override
@@ -80,6 +85,20 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
     {
 
     }
+
+
+    public void saveTaskList()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(MainActivity.taskList);
+        editor.putString("task list", json);
+        editor.apply();
+    }
+
+
+
 
 
 }

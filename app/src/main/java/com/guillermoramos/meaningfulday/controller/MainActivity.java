@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        taskList = new ArrayList<>();
+        loadTaskList();
 
         addButton = (Button) findViewById(R.id.add_button);
         progressButton = (Button) findViewById(R.id.progressPage);
@@ -57,6 +57,20 @@ public class MainActivity extends AppCompatActivity {
     public void openProgressScreen() {
         Intent intent = new Intent(this, ProgressActivity.class);
         startActivity(intent);
+    }
+
+    public void loadTaskList()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("task list", null);
+        Type type = new TypeToken<ArrayList<MeaningfulTask>>() {}.getType();
+        taskList = gson.fromJson(json, type);
+
+        if (taskList == null)
+        {
+            taskList = new ArrayList<>();
+        }
     }
 
 
