@@ -42,4 +42,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/progressPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="Progress"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="542dp" />
 </android.support.constraint.ConstraintLayout>
