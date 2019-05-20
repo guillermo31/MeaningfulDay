@@ -2,16 +2,17 @@ package com.guillermoramos.meaningfulday.model;
 
 public class MeaningfulTask
 {
-    private int dailyGoal;
+    private String task;
     private String category;
 
     public MeaningfulTask()
     {
-
+        task = "reading";
+        category = "academic";
     }
-    public MeaningfulTask(int goal, String category)
+    public MeaningfulTask(String task, String category)
     {
-        this.dailyGoal = goal;
+        this.task = task;
         this.category = category;
     }
 }
