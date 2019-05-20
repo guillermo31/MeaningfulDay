@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.guillermoramos.meaningfulday.R;
 import com.guillermoramos.meaningfulday.model.MeaningfulTask;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class ViewAdapter
@@ -36,6 +38,7 @@ public class ViewAdapter
     class ItemView extends RecyclerView.ViewHolder
     {
         private TextView text;
+        private TextView category;
 
         private String key;
 
@@ -44,11 +47,13 @@ public class ViewAdapter
             super(LayoutInflater.from(mContext).inflate(R.layout.task_item, parent, false));
 
             text = (TextView) itemView.findViewById(R.id.text);
+            category = (TextView) itemView.findViewById(R.id.category);
         }
 
         public void bind(MeaningfulTask task)
         {
             text.setText(task.getTask());
+            category.setText(task.getCategory());
         }
 
     }

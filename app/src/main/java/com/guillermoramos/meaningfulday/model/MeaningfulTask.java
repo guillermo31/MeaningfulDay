@@ -29,4 +29,8 @@ public class MeaningfulTask
     {
         return task;
     }
+
+    public String getCategory() {
+        return category;
+    }
 }
