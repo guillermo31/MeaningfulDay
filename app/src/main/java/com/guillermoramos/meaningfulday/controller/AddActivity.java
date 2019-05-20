@@ -58,6 +58,11 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
         });
     }
 
+    public int getListSize()
+    {
+        return taskArrayList.size();
+    }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
