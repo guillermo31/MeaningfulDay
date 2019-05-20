@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MeaningfulDay</string>
+    
+    <string-array name="categories">
+        <item>Health</item>
+        <item>Academic</item>
+        <item>Work</item>
+    </string-array>
 </resources>
