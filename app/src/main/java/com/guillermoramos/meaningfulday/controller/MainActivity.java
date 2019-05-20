@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button addButton;
     private Button progressButton;
+    private Button updateButton;
     static ArrayList<MeaningfulTask> taskList;
     static int dailyGoal;
 
@@ -32,19 +34,36 @@ public class MainActivity extends AppCompatActivity {
         loadTaskList();
         loadDailyGoal();
 
+        final EditText updatedGoal = findViewById(R.id.dailyGoalInput);
+
         addButton = (Button) findViewById(R.id.add_button);
         progressButton = (Button) findViewById(R.id.progressPage);
+        updateButton = (Button) findViewById(R.id.udpateButton);
 
-        addButton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 openAddScreen();
             }
         });
-        progressButton.setOnClickListener(new View.OnClickListener() {
+        progressButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 openProgressScreen();
+            }
+        });
+        updateButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String value = updatedGoal.getText().toString();
+                dailyGoal = Integer.parseInt(value);
+                saveDailyGoal();
             }
         });
 
@@ -78,6 +97,13 @@ public class MainActivity extends AppCompatActivity {
     {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", 0);
         dailyGoal = sharedPreferences.getInt("daily goal", 0);
+    }
+
+    public void saveDailyGoal()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("daily goal", dailyGoal).commit();
     }
 
 

@@ -43,8 +43,6 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
 
         final EditText taskInput = findViewById(R.id.textInput);
 
-        final EditText goalInput = findViewById(R.id.goalInput);
-
         submitButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -53,23 +51,8 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
                 String task = taskInput.getText().toString();
                 String category = categorySpinner.getSelectedItem().toString();
 
-                String value = goalInput.getText().toString();
-
-                int goal = 0;
-                if(value != null)
-                {
-                    goal = Integer.parseInt(value);
-
-                }
                 newMeaningfulTask = new MeaningfulTask(task, category);
                 MainActivity.taskList.add(newMeaningfulTask);
-
-                if(goal != 0)
-                {
-                    MainActivity.dailyGoal = goal;
-                    saveDailyGoal();
-
-                }
 
                 saveTaskList();
 
@@ -103,12 +86,7 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
         editor.putString("task list", json);
         editor.apply();
     }
-    public void saveDailyGoal()
-    {
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", 0);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("daily goal", MainActivity.dailyGoal).commit();
-    }
+
 
 
 
