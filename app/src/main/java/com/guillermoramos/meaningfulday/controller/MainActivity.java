@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button addButton;
     private Button progressButton;
     static ArrayList<MeaningfulTask> taskList;
-    static int dailyGoal = 0;
+    static int dailyGoal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         loadTaskList();
+        loadDailyGoal();
 
         addButton = (Button) findViewById(R.id.add_button);
         progressButton = (Button) findViewById(R.id.progressPage);
@@ -71,6 +72,12 @@ public class MainActivity extends AppCompatActivity {
         {
             taskList = new ArrayList<>();
         }
+    }
+
+    public void loadDailyGoal()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", 0);
+        dailyGoal = sharedPreferences.getInt("daily goal", 0);
     }
 
 
